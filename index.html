@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #sliders-container {
+                display: flex;
+                justify-content: space-around;
+            }
+            .slider > .color-name {
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+            .slider input {
+                width: 100%;
+            }
+            .slider {
+                min-width: 200px;
+            }
+            .slider .speed {
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem 0;
+                display: flex;
+                justify-content: center;
+            }
+            .slider {
+                padding: 0.5rem;
+            }
+            .speed-span {
+                width: 60px;
+            }
+            @media screen and (max-width: 800px) {
+                #sliders-container {
+                    flex-direction: column;
+                }
+            }
+
+            input {
+                display: block;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas width="300" height="300"></canvas>
+        <div id="sliders-container">
+            <div class="slider">
+                <input
+                    type="range"
+                    name="r1"
+                    id="range-blue"
+                    oninput="updateBlue(this.value)"
+                    min="0"
+                    max="10"
+                    step="0.1"
+                    value="1"
+                />
+                <div
+                    class="color-name"
+                    style="background-color: rgb(68, 68, 248); color: white"
+                >
+                    <span>Blue</span>
+                </div>
+                <div class="speed">
+                    <div>Speed</div>
+                    <div class="speed-span" id="blue-speed">
+                        <code>1</code>
+                    </div>
+                </div>
+            </div>
+            <div class="slider">
+                <input
+                    type="range"
+                    name="r2"
+                    id="range-red"
+                    oninput="updateRed(this.value)"
+                    min="0"
+                    max="10"
+                    step="0.1"
+                    value="1"
+                />
+                <div
+                    class="color-name"
+                    style="background-color: rgb(202, 59, 59); color: white"
+                >
+                    <span>Red</span>
+                </div>
+                <div class="speed">
+                    <div>Speed</div>
+                    <div class="speed-span" id="red-speed">
+                        <code>1</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="reset" onclick="reset()">reset</button>
+        <button id="toggle" onclick="togglePlay()">toggle</button>
+        <script src="./index.js"></script>
+    </body>
+</html>
